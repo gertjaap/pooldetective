@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e 
 
-BUILD="api apidocs frontend dbqueries coordinator coordinatorhost blockfetcher blockobserver blockobserverhost stratumclient stratumclienthost stratumserver pubsubhost"
+BUILD="api apidocs frontend-reorgtracker frontend-pooldetective frontend dbqueries coordinator coordinatorhost blockfetcher blockobserver blockobserverhost stratumclient stratumclienthost stratumserver pubsubhost"
 echo "Argument: [$1]"
 
 if [ ! -z "$1" ]; then
