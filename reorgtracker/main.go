@@ -237,7 +237,6 @@ func writeBestHash(coinID int, h *chainhash.Hash) error {
 		time.Now().UTC(),
 		coinID,
 	)
-	r.Close()
 	return err
 }
 
