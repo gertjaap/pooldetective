@@ -19,9 +19,7 @@ func (q *ForkBlocksQuery) SQL() string {
 		fork_block_hash bytea NOT NULL,
 		fork_height integer NOT NULL,
 		next_fork_height integer,
-		CONSTRAINT analysis_fork_blocks_new_pkey PRIMARY KEY (coin_id, fork_block_hash),
-			ON UPDATE NO ACTION
-			ON DELETE NO ACTION
+		CONSTRAINT analysis_fork_blocks_new_pkey PRIMARY KEY (coin_id, fork_block_hash)
 	);
 	INSERT INTO public.analysis_fork_blocks_new(coin_id, fork_block_hash, fork_height)
 	SELECT coin_id, previous_block_hash, height FROM public.blocks WHERE previous_block_hash IS NOT NULL GROUP BY coin_id, previous_block_hash, height having count(*) > 1;
