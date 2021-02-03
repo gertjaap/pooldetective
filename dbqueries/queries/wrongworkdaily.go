@@ -33,7 +33,7 @@ func (q *WrongWorkDailyQuery) SQL() string {
 		LEFT JOIN blocks b on b.id=j.previous_block_id
 		left join coins c2 on c2.id=b.coin_id
 		LEFT JOIN (SELECT COUNT(*) as totaljobs, SUM(time_spent_msec) as totaltime, pool_observer_id, observed::date FROM jobs WHERE observed::date > COALESCE((SELECT max(observed_on) FROM analysis_wrong_work_daily), '2019-01-01'::date) AND observed < NOW()::date GROUP BY pool_observer_id, observed::date) tj on tj.pool_observer_id=j.pool_observer_id and tj.observed=j.observed::date
-	WHERE l.id=2 AND j.observed::date > COALESCE((SELECT max(observed_on) FROM analysis_wrong_work_daily), '2019-01-01'::date) AND j.observed < NOW()::date AND c2.name IS NOT NULL AND c.id != c2.id
+	WHERE l.id=5 AND j.observed::date > COALESCE((SELECT max(observed_on) FROM analysis_wrong_work_daily), '2019-01-01'::date) AND j.observed < NOW()::date AND c2.name IS NOT NULL AND c.id != c2.id
 	GROUP BY 
 	p.id ,
 		po.id ,
